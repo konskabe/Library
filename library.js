@@ -19,9 +19,8 @@ function addBookToLibrary(){
     myLibrary.push(newBook);
     console.log(myLibrary);
 }
-
+let libraryEl = document.querySelector(".library");
 function display(){
-    let libraryEl = document.querySelector(".library")
     libraryEl.innerHTML = "";
     for(let i=0; i < myLibrary.length; i++){
         let book = myLibrary[i];
@@ -53,11 +52,19 @@ function remove(index){
     display();
 }
 
+let bookForm = document.querySelector("#bookForm");
+
 let newBookbtn = document.querySelector("#newBookbtn");
 newBookbtn.addEventListener("click",()=> {
-    let bookForm = document.querySelector("#bookForm");
     bookForm.style.display = "flex";
+    libraryEl.style.gridColumn = "2/3";
     
+});
+
+let closeButton = document.querySelector("#closeButton");
+closeButton.addEventListener("click",()=>{
+    bookForm.style.display = "none";
+    libraryEl.style.gridColumn = "1/3";
 });
 
 

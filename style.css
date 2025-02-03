@@ -19,18 +19,15 @@ body{
 }
 header{
     grid-column: 1/3;
-    /* background-color: beige; */
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     position: relative;
 }
 h1{
     color: var(--violetBackgrounds);
 }
 #newBookbtn{
-    position: absolute;
-    left: 5%;
     background-color: #f3e8ff;
     width: min(100px,20%);
     padding: 10px;
@@ -40,6 +37,24 @@ h1{
     font-weight: 600;
     cursor: pointer;
 }
+.signIn{
+    width: min(100px,20%);
+}
+#signInBtn, #signOutBtn{
+    background-color: #f3e8ff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #9333ea ;
+    box-shadow: 2px 2px 1px #9333ea;
+    font-weight: 600;
+    cursor: pointer;
+}
+#signOutBtn{
+    display: none;
+}
+
+
 
 form{
     
@@ -224,6 +239,9 @@ body {
 @media screen and (max-width: 620px){
     header{
         font-size: 1rem;
+    }
+    .signIn *{
+        font-size: 0.6rem;
     }
     body{
         display: flex;

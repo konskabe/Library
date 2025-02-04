@@ -42,10 +42,14 @@ function signInWithGoogle() {
 
 // Sign out
 function signOutUser() {
-  signOut(auth).then(() => {
-    console.log("User signed out");
-  });
+  signOut(auth)
+    .then(() => {
+      console.log("User signed out");
+      loadUserLibrary();  // Ensure localStorage reloads after sign-out
+    })
+    .catch((error) => console.error("Error signing out:", error));
 }
+
 
 // Listen for authentication state changes
 auth.onAuthStateChanged((user) => {
@@ -228,5 +232,4 @@ document.querySelector("#bookForm").addEventListener("submit", function (event) 
 // Load books on page load
 document.addEventListener("DOMContentLoaded", () => {
   loadUserLibrary(); // Load library on page load
-  display();
 });
